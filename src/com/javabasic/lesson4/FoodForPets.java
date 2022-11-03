@@ -28,6 +28,9 @@ public class FoodForPets {
                 countOfDogs, thirtyDaysMonth, numberOfMeals, oneFoodPortionWeight
         );
 
+        float monthlyCoastForCats = monthlyCoastForPetFood(oneFoodPortionCoast, monthlyFoodWeightForCats);
+        float monthlyCoastForDogs = monthlyCoastForPetFood(oneFoodPortionCoast, monthlyFoodWeightForDogs);
+
         System.out.printf(
                 "For %s days: %s Cats need = %s kilo, %s Dogs need = %s kilo of food.%n",
                 thirtyDaysMonth,
@@ -40,7 +43,7 @@ public class FoodForPets {
         System.out.printf(
                 "For %s days, for all your pets, you need = %.2f dollars",
                 thirtyDaysMonth,
-                monthlyCoastForPetFood(oneFoodPortionCoast, monthlyFoodWeightForDogs,monthlyFoodWeightForCats)
+                monthlyCoastForCats + monthlyCoastForDogs
         );
 
     }
@@ -51,14 +54,9 @@ public class FoodForPets {
 
     public static float monthlyCoastForPetFood(
             float coast,
-            float monthlyFoodWeightForDogs,
-            float monthlyFoodWeightForCats
+            float weight
     ){
-
-        float monthlyCoastForDogs =  coast / monthlyFoodWeightForDogs * 1000;
-        float monthlyCoastForCats =  coast / monthlyFoodWeightForCats * 1000;
-
-        return monthlyCoastForDogs + monthlyCoastForCats;
+        return coast / weight * 1000;
     }
 
 }
