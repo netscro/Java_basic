@@ -11,7 +11,7 @@ public class MinimalValue {
 
         double minimalValue = getMinimalDouble(valuesList);
 
-        getResult(minimalValue);
+        printResult(minimalValue);
 
     }
 
@@ -26,19 +26,19 @@ public class MinimalValue {
         }
     }
 
-    public static boolean isInt(double value) {
+    public static boolean isPositive(double value) {
 
-        boolean is_result;
+        boolean isResult;
 
-        is_result = value % 1 == 0;
+        isResult = value % 1 == 0;
 
-        return is_result;
+        return isResult;
     }
 
-    public static void getResult(double value) {
+    public static void printResult(double value) {
 
         int intMinimalValue;
-        if (isInt(value)) {
+        if (isPositive(value)) {
             intMinimalValue = (int) value;
             System.out.println(intMinimalValue);
         } else {

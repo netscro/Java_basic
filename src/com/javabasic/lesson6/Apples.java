@@ -18,7 +18,7 @@ public class Apples {
     public static void main(String[] args) throws IOException {
 
         System.out.println("How many apples do you have?");
-        int intFromUser = getInt();
+        int intFromUser = isPositive();
 
         getJarsForApples(intFromUser);
 
@@ -28,19 +28,19 @@ public class Apples {
 
     }
 
-    public static int getInt() throws IOException {
+    public static int isPositive() throws IOException {
 
-        boolean getInt = false;
+        boolean isInt = false;
         int intValue = 0;
 
-        while (!getInt) {
+        while (!isInt) {
 
             String getValueFromUser = reader.readLine();
 
             try {
                 intValue = Integer.parseInt(getValueFromUser);
                 if (intValue > 0) {
-                    getInt = true;
+                    isInt = true;
                 } else {
                     System.out.print("Error. Please input an Integer higher than 0: ");
                 }

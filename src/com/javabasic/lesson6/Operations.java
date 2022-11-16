@@ -9,6 +9,7 @@ public class Operations {
     static double secondValue;
     static double result;
     static char operator;
+    static char exceptionValue = '!';
 
     static BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
@@ -25,7 +26,7 @@ public class Operations {
         System.out.print("Please enter the required operator (+, -, *, /): ");
         operator = getOperator();
 
-        getResult();
+        printResult();
 
     }
 
@@ -35,14 +36,14 @@ public class Operations {
 
     public static double getNumber() throws IOException {
 
-        boolean getDouble = false;
+        boolean isDouble = false;
         double doubleValue = 0;
 
-        while (!getDouble) {
+        while (!isDouble) {
 
             try {
                 doubleValue = Double.parseDouble(getValueFromUser());
-                getDouble = true;
+                isDouble = true;
             } catch (NumberFormatException e) {
                 System.out.print("Incorrect data type. Please input number: ");
             }
@@ -54,15 +55,15 @@ public class Operations {
 
     public static char getOperator() throws IOException {
 
-        boolean getChar = false;
+        boolean isChar = false;
         char charValue = 0;
 
-        while (!getChar) {
+        while (!isChar) {
 
             charValue = getValueFromUser().charAt(0);
 
             if (charValue == '+' || charValue == '-' || charValue == '*' || charValue == '/') {
-                getChar = true;
+                isChar = true;
             } else {
                 System.out.print("Error! Please input correct operator (+, -, *, /): ");
             }
@@ -71,7 +72,7 @@ public class Operations {
         return charValue;
     }
 
-    public static void getResult() {
+    public static void printResult() {
 
         switch (operator) {
             case '+':
@@ -87,11 +88,11 @@ public class Operations {
                 result = firstValue / secondValue;
                 break;
             default:
-                result = 0;
+               result = exceptionValue;
                 break;
         }
 
-        if (result == 0) {
+        if (result == exceptionValue) {
             System.out.println("Something went wrong. Goodbye!");
             System.exit(1);
         } else {
