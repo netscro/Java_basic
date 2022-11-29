@@ -15,14 +15,14 @@ public class GuessWhatNumber {
 
         int computerNumber = getRandomInt();
         System.out.print("What number did the computer choose? ");
-        int intFromUser = isInt();
+        int intFromUser = getInt();
         System.out.println("computerNumber: " + computerNumber);
 
         if (intFromUser != computerNumber) {
             int temp;
             do {
                 System.out.print("Wrong number! Try again: ");
-                temp = isInt();
+                temp = getInt();
             } while (computerNumber != temp);
         }
 
@@ -34,7 +34,7 @@ public class GuessWhatNumber {
         return (int) Math.ceil(Math.random() * maxRangeValue);
     }
 
-    public static int isInt() throws IOException {
+    public static int getInt() throws IOException {
 
         String errorMessage = "Please input an Integer from 0 to 10:";
 

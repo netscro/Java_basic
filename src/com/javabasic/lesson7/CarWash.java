@@ -13,7 +13,7 @@ public class CarWash {
     public static void main(String[] args) throws IOException, InterruptedException {
 
         System.out.println("How many cars need to wash?");
-        int countOfCarsToWash = isInt();
+        int countOfCarsToWash = getInt();
 
         System.out.printf("### The washing is started for cars: %s ###\n", countOfCarsToWash);
         // first way with for
@@ -52,7 +52,7 @@ public class CarWash {
 
     }
 
-    public static int isInt() throws IOException {
+    public static int getInt() throws IOException {
 
         boolean isPositive = false;
         int intValue = 0;
