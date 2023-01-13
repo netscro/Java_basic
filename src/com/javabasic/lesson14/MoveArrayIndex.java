@@ -15,12 +15,13 @@ public class MoveArrayIndex {
     }
 
     public static int[] getUpdatedArr(int[] arr) {
+        int newIndex = arr.length - moveNumber;
         int[] newArr = new int[arr.length];
         for (int i = 0; i < moveNumber; i++) {
-            newArr[i] = arr[(arr.length - moveNumber) + i];
+            newArr[i] = arr[newIndex + i];
         }
 
-        for (int i = 0; i < (arr.length - moveNumber); i++) {
+        for (int i = 0; i < newIndex; i++) {
             newArr[moveNumber + i] = arr[i];
         }
         return newArr;
