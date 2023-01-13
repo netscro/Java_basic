@@ -17,7 +17,7 @@ public class MoveArrayIndex {
     public static int[] getUpdatedArr(int[] arr) {
         int[] newArr = new int[arr.length];
         for (int i = 0; i < moveNumber; i++) {
-            newArr[i] = arr[(arr.length - 1) - i];
+            newArr[i] = arr[(arr.length - moveNumber) + i];
         }
 
         for (int i = 0; i < (arr.length - moveNumber); i++) {
