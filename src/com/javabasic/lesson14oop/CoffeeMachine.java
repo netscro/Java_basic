@@ -9,6 +9,8 @@ import java.util.List;
 public class CoffeeMachine {
 
     private final static BufferedReader READER = new BufferedReader(new InputStreamReader(System.in));
+    private final static int COUNT_OF_AVAILABLE_DRINKS = 4;
+    private final static int MAX_COUNT_DRINKS_FOR_PURCHASE = 10;
     private static HotDrink americano = new HotDrink("Americano");
     private static HotDrink latte = new HotDrink("Latte");
     private static HotDrink cappuccino = new HotDrink("Cappuccino");
@@ -16,7 +18,6 @@ public class CoffeeMachine {
     private static List<HotDrink> orderedDrinksArray = new ArrayList<>();
     private static double totalPrice = 0;
     private static int countOfOrderedDrinks = 0;
-
 
     public void start() throws InterruptedException, IOException {
 
@@ -26,7 +27,7 @@ public class CoffeeMachine {
         tea.setPrice(0.90);
 
         System.out.println("How many drinks do you want?");
-        int countOfDrinks = getInt(10);
+        int countOfDrinks = getInt(MAX_COUNT_DRINKS_FOR_PURCHASE);
 
         System.out.println("Available drinks:");
         System.out.println("Americano  - 1");
@@ -96,7 +97,7 @@ public class CoffeeMachine {
     private static void purchase(int countOfDrinks) throws IOException, InterruptedException {
         do {
             System.out.println("Please choose the drink (from 1 to 4):");
-            int drinkId = getInt(4);
+            int drinkId = getInt(COUNT_OF_AVAILABLE_DRINKS);
             addDrinkToOrderedDrinksArray(drinkId);
             countOfOrderedDrinks++;
             System.out.println(orderedDrinksArray.size());
