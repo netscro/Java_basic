@@ -1,24 +1,17 @@
-package com.javabasic.lesson14oop;
-
-import java.util.concurrent.TimeUnit;
+package com.javabasic.lesson14oop.coffemachine;
 
 public class HotDrink {
 
-    private double price;
+    private final double price;
     String drinkName;
 
-    public HotDrink(String drinkName) {
+    public HotDrink(String drinkName, double price) {
         this.drinkName = drinkName;
+        this.price = price;
     }
 
     public void makeDrink() throws InterruptedException {
         System.out.printf("The making of [%s] has been started. Please wait...\n", drinkName);
-        TimeUnit.SECONDS.sleep(10);
-
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
     }
 
     public double getPrice() {

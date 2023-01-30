@@ -1,11 +1,11 @@
-package com.javabasic.lesson14oop;
+package com.javabasic.lesson14oop.estate;
 
-public class RealEstateTax {
+public class RealEstate {
 
-    int realEstateArea;
+    private final int realEstateArea;
     int realEstateAreaMeterTax;
 
-    public RealEstateTax(int realEstateArea, int realEstateAreaMeterTax) {
+    public RealEstate(int realEstateArea, int realEstateAreaMeterTax) {
         this.realEstateArea = realEstateArea;
         this.realEstateAreaMeterTax = realEstateAreaMeterTax;
     }

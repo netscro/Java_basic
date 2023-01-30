@@ -1,4 +1,4 @@
-package com.javabasic.lesson14oop;
+package com.javabasic.lesson14oop.coffemachine;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -11,20 +11,15 @@ public class CoffeeMachine {
     private final static BufferedReader READER = new BufferedReader(new InputStreamReader(System.in));
     private final static int COUNT_OF_AVAILABLE_DRINKS = 4;
     private final static int MAX_COUNT_DRINKS_FOR_PURCHASE = 10;
-    private static HotDrink americano = new HotDrink("Americano");
-    private static HotDrink latte = new HotDrink("Latte");
-    private static HotDrink cappuccino = new HotDrink("Cappuccino");
-    private static HotDrink tea = new HotDrink("Tea");
+    private static HotDrink americano = new Americano("Americano", 1.19);
+    private static HotDrink latte = new Latte("Latte", 1.90);
+    private static HotDrink cappuccino = new Cappuccino("Cappuccino", 1.75);
+    private static HotDrink tea = new Tea("Tea", 0.85);
     private static List<HotDrink> orderedDrinksArray = new ArrayList<>();
     private static double totalPrice = 0;
     private static int countOfOrderedDrinks = 0;
 
     public void start() throws InterruptedException, IOException {
-
-        americano.setPrice(1.75);
-        latte.setPrice(2.10);
-        cappuccino.setPrice(1.9);
-        tea.setPrice(0.90);
 
         System.out.println("How many drinks do you want?");
         int countOfDrinks = getInt(MAX_COUNT_DRINKS_FOR_PURCHASE);
@@ -36,6 +31,7 @@ public class CoffeeMachine {
         System.out.println("Tea        - 4");
 
         purchase(countOfDrinks);
+        cookTheDrink();
 
         System.out.println("Your order is ready. Please enjoy! Thanks :)");
         System.out.printf("Total price is: %s $", getTotalPrice(totalPrice));
@@ -94,21 +90,25 @@ public class CoffeeMachine {
         return String.format("%.2f", totalPrice);
     }
 
-    private static void purchase(int countOfDrinks) throws IOException, InterruptedException {
+    private static void purchase(int countOfDrinks) throws IOException {
+
         do {
             System.out.println("Please choose the drink (from 1 to 4):");
             int drinkId = getInt(COUNT_OF_AVAILABLE_DRINKS);
             addDrinkToOrderedDrinksArray(drinkId);
             countOfOrderedDrinks++;
-            System.out.println(orderedDrinksArray.size());
             System.out.printf("Count of ordered drinks: %s\n", countOfOrderedDrinks);
-
         } while (countOfOrderedDrinks != countOfDrinks);
+
+    }
+
+    private static void cookTheDrink() throws InterruptedException {
 
         for (HotDrink drink : orderedDrinksArray) {
             drink.makeDrink();
             totalPrice += drink.getPrice();
         }
+
     }
 
 }

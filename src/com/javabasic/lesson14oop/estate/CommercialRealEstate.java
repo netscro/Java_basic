@@ -1,12 +1,12 @@
-package com.javabasic.lesson14oop;
+package com.javabasic.lesson14oop.estate;
 
-public class CommercialRealEstateTax extends RealEstateTax {
+public class CommercialRealEstate extends RealEstate {
 
     double revenue;
-    private static final double maxRevenueBeforeTax = 100;
+    private static final double MAX_REVENUE_BEFORE_TAX = 100;
     private static final double revenueTaxPercentage = 5;
 
-    public CommercialRealEstateTax(int realEstateArea, int realEstateAreaMeterTax, double revenue) {
+    public CommercialRealEstate(int realEstateArea, int realEstateAreaMeterTax, double revenue) {
         super(realEstateArea, realEstateAreaMeterTax);
         this.revenue = revenue;
     }
@@ -15,7 +15,7 @@ public class CommercialRealEstateTax extends RealEstateTax {
     public double getRealEstateTax() {
         double tax = super.getRealEstateTax();
 
-        if (revenue > maxRevenueBeforeTax) {
+        if (revenue > MAX_REVENUE_BEFORE_TAX) {
             return tax + super.getTaxFromPercentage(tax, revenueTaxPercentage);
         }
 

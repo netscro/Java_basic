@@ -1,10 +1,10 @@
-package com.javabasic.lesson14oop;
+package com.javabasic.lesson14oop.estate;
 
-public class ResidentialRealEstateTax extends RealEstateTax {
+public class ResidentialRealEstate extends RealEstate {
 
     double subsidyPercentage;
 
-    public ResidentialRealEstateTax(int realEstateArea, int realEstateAreaMeterTax, double subsidyPercentage) {
+    public ResidentialRealEstate(int realEstateArea, int realEstateAreaMeterTax, double subsidyPercentage) {
         super(realEstateArea, realEstateAreaMeterTax);
         this.subsidyPercentage = subsidyPercentage;
 
