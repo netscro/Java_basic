@@ -19,10 +19,11 @@ public class DegreeConverter {
         System.out.println("Fahrenheit - 1");
         System.out.println("Kelvin     - 2");
         int degreeToConvert = getInt();
-        CreateDegree(degreeToConvert).convert(degree);
+        Converter converter = createConverter(degreeToConvert);
+        System.out.printf("Degrees in %s: %s\n", converter.getClass().getSimpleName(), converter.convert(degree));
     }
 
-    public static Converter CreateDegree(int degreeToConvert) {
+    public static Converter createConverter(int degreeToConvert) {
         switch (degreeToConvert) {
             case 1:
                 return new Fahrenheit();
